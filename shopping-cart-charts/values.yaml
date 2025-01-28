@@ -1,0 +1,12 @@
+replicaCount: 1
+
+image:
+  repository: zohaibsys/shopping-cart
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8070
+  nodePort: 31000
+
