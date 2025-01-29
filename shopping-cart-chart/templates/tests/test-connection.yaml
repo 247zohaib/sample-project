@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: "{{ include \"shopping-cart-chart.fullname\" . }}-test-connection"
   labels:
-    {{- include "shopping-cart-chart.labels" . | nindent 4 }}
+    {{ include "shopping-cart-chart.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": test
 spec:
