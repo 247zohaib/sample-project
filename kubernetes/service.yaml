@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: shop-store-service
+spec:
+  type: NodePort  # Service type as NodePort
+  selector:
+    app: shop-store  # Match the app label to the deployment
+  ports:
+    - port: 8070
+      targetPort: 8070
+      nodePort: 31000  # Expose the service on NodePort 31000
+

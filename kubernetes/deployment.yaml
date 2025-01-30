@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shop-store
+spec:
+  replicas: 1  # Number of replicas defined in values.yaml
+  selector:
+    matchLabels:
+      app: shop-store  # Label to match the app
+  template:
+    metadata:
+      labels:
+        app: shop-store  # Labels for the pod
+    spec:
+      containers:
+      - name: shop-store
+        image: "zohaibsys/shop-store:latest"  # Image from DockerHub
+        ports:
+        - containerPort: 8070  # Port exposed by the container
+
