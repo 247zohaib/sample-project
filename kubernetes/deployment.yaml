@@ -3,7 +3,12 @@ kind: Deployment
 metadata:
   name: shop-store
 spec:
-  replicas: 1  # Number of replicas defined in values.yaml
+  replicas: 1  # Number of replicas for the application
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: shop-store  # Label to match the app
@@ -14,7 +19,7 @@ spec:
     spec:
       containers:
       - name: shop-store
-        image: "zohaibsys/shop-store:latest"  # Image from DockerHub
+        image: "zohaibsys/shop-store:latest"  # Placeholder, will be updated dynamically
         ports:
         - containerPort: 8070  # Port exposed by the container
-
+        imagePullPolicy: Always  # Ensures latest image is always pulled
